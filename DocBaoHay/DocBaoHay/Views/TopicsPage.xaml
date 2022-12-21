@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DocBaoHay.Views.TopicsPage">
+             x:Class="DocBaoHay.Views.TopicsPage"
+             Title="Các chủ đề phổ biến">
     <ContentPage.Content>
         <StackLayout>
-            <CollectionView x:Name="ItemsListView"
-                ItemsSource="{Binding Topics}"
-                ItemsLayout="VerticalGrid, 2"
-                SelectionMode="None">
+            <CollectionView x:Name="ChuDeCV"
+                            ItemsLayout="VerticalGrid, 2"
+                            SelectionMode="Single"
+                            SelectionChanged="ChuDeCV_SelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        
                         <StackLayout Padding="10">
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -24,20 +24,18 @@
                                     <ColumnDefinition Width="10"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Image Source="{Binding Hinh}"/>
+                                <StackLayout Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="0">
+                                    <Frame CornerRadius="10" Padding="0">
+                                        <Image Source="{Binding Hinh}" VerticalOptions="Center" Aspect="AspectFit" Opacity="0.7"/>
+                                    </Frame>
+                                </StackLayout>
 
-                                <Label Text="{Binding Ten}" LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" FontSize="16" 
-                                VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding Ten}" LineBreakMode="NoWrap"  FontSize="18" FontAttributes="Bold" TextColor="Black"
+                                        VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                                        Grid.Row="1" Grid.Column="1"/>
                             </Grid>
-                            <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer
-                                NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
-                                CommandParameter="{Binding .}">
-                                </TapGestureRecognizer>
-                            </StackLayout.GestureRecognizers>
                         </StackLayout>
+                        
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

@@ -34,7 +34,7 @@
         <ShellContent Title="Browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />-->
         <ShellContent Title="Tin nóng" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:HotNewsPage}" />
         <ShellContent Title="Tin tổng hợp" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:CompositeNewsPage}" />
-        <ShellContent Title="Tin cho bạn" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:NewsForYourPage}" />
+        <ShellContent Title="Tin cho bạn" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:NewsForYouPage}" />
         <ShellContent Title="Chủ đề" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:TopicsPage}" />
         <ShellContent Title="Tôi" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:AccountPage}" />
     </TabBar>
