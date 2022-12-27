@@ -4,32 +4,28 @@
              x:Class="DocBaoHay.Views.NewsByTopic">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="NewsLV" ItemSelected="NewsLV_ItemSelected">
+            <Label x:Name="Label"></Label>
+            <ListView x:Name="NewsLV" ItemSelected="NewsLV_ItemSelected" RowHeight="120">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Grid ColumnSpacing="10" Margin="0,0,0,10">
+                                <Grid Margin="0">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*"/>
-                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="130"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
+
+                                    <Image Source="{Binding baiBao.Thumbnail}"  Aspect="AspectFill" Grid.RowSpan="2" Grid.Column="0" Grid.Row="0"/>
+
+                                    <Label Text="{Binding baiBao.TieuDe}" Grid.Row="0" Grid.Column="1" FontSize="17"></Label>
+
+                                    <Image Source="{Binding tacGia.Hinh}" Aspect="AspectFit" Grid.Row="1" Grid.Column="1"/>
                                 </Grid>
-
-                                <StackLayout Grid.RowSpan="2" Grid.Column="0" Grid.Row="0">
-                                    <Frame CornerRadius="10">
-                                        <Image Source="{Binding Thumbnail}"  Aspect="Fill"/>
-                                    </Frame>
-                                </StackLayout>
-
-                                <Label Text="{Binding TieuDe}" Grid.Row="0" Grid.Column="1" FontSize="17"></Label>
-                                <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-                                    <Image Source="{Binding Hinh}" Aspect="AspectFill"/>
-                                </StackLayout>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

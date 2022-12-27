@@ -1,4 +1,4 @@
-﻿using DocBaoHay_WebAPI.Models;
+﻿using DocBaoHay.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -23,17 +23,17 @@ namespace DocBaoHay.Views
 		{
 			InitializeComponent ();
 			Title = "Tin " + chude.Ten;
-            InitializeData(chude);
+            InitializeData(chude.Id);
         }
 
-        async void InitializeData(ChuDe chude)
+        async void InitializeData(int chudeId)
         {
             HttpClient httpClient = new HttpClient();
 
-            string url = "http://172.17.29.57/docbaohay/api/bai-bao/" + chude.ID;
+            string url = "http://192.168.56.1/docbaohay/api/bai-bao?ChuDe=" + chudeId.ToString();
             var BaiBaoList = await httpClient.GetStringAsync(url);
 
-            var BaiBaoListConverted = JsonConvert.DeserializeObject<List<BaiBao>>(BaiBaoList);
+            var BaiBaoListConverted = JsonConvert.DeserializeObject<List<BB_CD_TG>>(BaiBaoList);
             NewsLV.ItemsSource = BaiBaoListConverted;
         }
 

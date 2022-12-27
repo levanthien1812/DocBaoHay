@@ -8,7 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Net.Http;
 using Newtonsoft.Json;
-using DocBaoHay_WebAPI.Models;
+using DocBaoHay.Models;
 
 namespace DocBaoHay.Views
 {
@@ -25,7 +25,7 @@ namespace DocBaoHay.Views
         {
             HttpClient httpClient = new HttpClient();
 
-            var ChuDeList = await httpClient.GetStringAsync("http://172.17.29.57/docbaohay/api/chu-de");
+            var ChuDeList = await httpClient.GetStringAsync("http://192.168.56.1/docbaohay/api/chu-de");
 
             var ChuDeListConverted = JsonConvert.DeserializeObject<List<ChuDe>>(ChuDeList);
             ChuDeCV.ItemsSource = ChuDeListConverted;

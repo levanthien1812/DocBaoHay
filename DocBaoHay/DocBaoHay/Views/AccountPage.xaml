@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DocBaoHay.Views.AccountPage">
+             x:Class="DocBaoHay.Views.AccountPage"
+             Title="Tài khoản">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout VerticalOptions="Center" Padding="20">
+            <Label Text="Bạn đã có tài khoản?" FontSize="15"></Label>
+            <Button x:Name="LoginBtn" Text="Đăng nhập" Padding="10" BackgroundColor="Tomato" TextColor="White" Clicked="LoginBtn_Clicked" CornerRadius="30" Margin="0,0,0,10"></Button>
+            <Label Text="Bạn chưa có tài khoản?" FontSize="15"></Label>
+            <Button x:Name="SignUpBtn" Text="Đăng ký" Padding="10" TextColor="Tomato" BackgroundColor="White" Clicked="SignUpBtn_Clicked" CornerRadius="30" BorderColor="Tomato" BorderWidth="2"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

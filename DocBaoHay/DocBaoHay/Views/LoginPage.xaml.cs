@@ -17,5 +17,10 @@ namespace DocBaoHay.Views
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
         }
+
+        private void LoginBtn_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

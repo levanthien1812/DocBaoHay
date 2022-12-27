@@ -16,5 +16,15 @@ namespace DocBaoHay.Views
         {
             InitializeComponent();
         }
+
+        private void LoginBtn_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SignUpBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SignUpPage());
+        }
     }
 }

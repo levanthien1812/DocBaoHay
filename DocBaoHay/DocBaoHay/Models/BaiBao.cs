@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DocBaoHay_WebAPI.Models
+namespace DocBaoHay.Models
 {
     public class BaiBao
     {
@@ -11,7 +11,7 @@ namespace DocBaoHay_WebAPI.Models
         public string Thumbnail { get; set; }
         public string Content { get; set; }
         public DateTime ThoiGianDang { get; set; }
-        public ChuDe ChuDe { get; set; }
-        public TacGia TacGia { get; set; }
+        public int ChuDe { get; set; }
+        public int TacGia { get; set; }
     }
 }

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DocBaoHay_WebAPI.Models
+namespace DocBaoHay.Models
 {
     public class ChuDe
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Ten { get; set; }
         public string Hinh { get; set;}
 

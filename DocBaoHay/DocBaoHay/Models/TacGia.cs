@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DocBaoHay_WebAPI.Models
+namespace DocBaoHay.Models
 {
     public class TacGia
     {
