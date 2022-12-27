@@ -19,7 +19,7 @@ namespace DocBaoHay.Views
 
         private void LoginBtn_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new LoginPage());
         }
 
         private void SignUpBtn_Clicked(object sender, EventArgs e)

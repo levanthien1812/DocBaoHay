@@ -10,5 +10,6 @@ namespace DocBaoHay.Models
         public string TenDangNhap { get; set; }
         public string Email { get; set; }
         public string MatKhau { get; set; }
+        public static NguoiDung nguoiDung;
     }
 }

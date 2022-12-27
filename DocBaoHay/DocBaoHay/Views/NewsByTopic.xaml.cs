@@ -31,10 +31,10 @@ namespace DocBaoHay.Views
             HttpClient httpClient = new HttpClient();
 
             string url = "http://192.168.56.1/docbaohay/api/bai-bao?ChuDe=" + chudeId.ToString();
-            var BaiBaoList = await httpClient.GetStringAsync(url);
+            var BaiBaoList_str = await httpClient.GetStringAsync(url);
 
-            var BaiBaoListConverted = JsonConvert.DeserializeObject<List<BB_CD_TG>>(BaiBaoList);
-            NewsLV.ItemsSource = BaiBaoListConverted;
+            var BaiBaoList = JsonConvert.DeserializeObject<List<BB_CD_TG>>(BaiBaoList_str);
+            NewsLV.ItemsSource = BaiBaoList;
         }
 
         private void NewsLV_ItemSelected(object sender, SelectedItemChangedEventArgs e)
