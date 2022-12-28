@@ -1,4 +1,5 @@
-﻿using DocBaoHay.Services;
+﻿using DocBaoHay.Models;
+using DocBaoHay.Services;
 using DocBaoHay.Views;
 using System;
 using Xamarin.Forms;
@@ -15,6 +16,7 @@ namespace DocBaoHay
 
             DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
+            NguoiDung.nguoiDung = null;
         }
 
         protected override void OnStart()

@@ -33,13 +33,14 @@ namespace DocBaoHay.Views
             string url = "http://192.168.56.1/docbaohay/api/bai-bao?ChuDe=" + chudeId.ToString();
             var BaiBaoList_str = await httpClient.GetStringAsync(url);
 
-            var BaiBaoList = JsonConvert.DeserializeObject<List<BB_CD_TG>>(BaiBaoList_str);
+            var BaiBaoList = JsonConvert.DeserializeObject<List<BaiBao_ChuDe>>(BaiBaoList_str);
             NewsLV.ItemsSource = BaiBaoList;
         }
 
         private void NewsLV_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-
+            BaiBao baiBao = e.SelectedItem as BaiBao;
+            Navigation.PushAsync(new DetailNewsPage(baiBao));
         }
     }
 }

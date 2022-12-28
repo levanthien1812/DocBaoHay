@@ -19,7 +19,6 @@ namespace DocBaoHay.Views
         public LoginPage()
         {
             InitializeComponent();
-            this.BindingContext = new LoginViewModel();
         }
 
         private async void LoginBtn_Clicked(object sender, EventArgs e)
@@ -40,6 +39,7 @@ namespace DocBaoHay.Views
             if (nd != null) {
                 await DisplayAlert("Thông báo", "Đăng nhập thành công!", "OK");
                 NguoiDung.nguoiDung = nd;
+                await Navigation.PopAsync();
             } else
             {
                 await DisplayAlert("Thông báo", "Email hoặc Mật khẩu không đúng! Vui lòng thử lại", "OK");
