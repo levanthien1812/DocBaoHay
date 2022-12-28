@@ -39,7 +39,7 @@ namespace DocBaoHay.Views
 
         private void NewsLV_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            BaiBao baiBao = e.SelectedItem as BaiBao;
+            BaiBao_ChuDe baiBao = e.SelectedItem as BaiBao_ChuDe;
             Navigation.PushAsync(new DetailNewsPage(baiBao));
         }
     }

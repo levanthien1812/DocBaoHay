@@ -49,7 +49,7 @@ namespace DocBaoHay.Views
 			StringContent httpContent = new StringContent(ndJson, Encoding.UTF8, "application/json");
 			// HTTP response includes DATA and MESSAGE
 			HttpResponseMessage ketQua = await http.PostAsync("http://192.168.56.1/docbaohay/api/nguoi-dung/dang-ky", httpContent);
-			// Convert HTTP content to string
+			// Convert HTTP response's content to string
 			var ketQuaTV = await ketQua.Content.ReadAsStringAsync();
 			//Convert JSON to something
 			nd = JsonConvert.DeserializeObject<NguoiDung>(ketQuaTV);

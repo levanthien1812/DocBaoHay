@@ -26,8 +26,8 @@
 
                                     <Label Text="{Binding TieuDe}" Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" FontSize="17"></Label>
                                     <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-                                        <Image Source="{Binding Hinh}" Margin="10,0,0,0" HorizontalOptions="Start" HeightRequest="25" Aspect="AspectFit"/>
-                                        <Label Text="{Binding KhoangTG}"></Label>
+                                        <Image Source="{Binding TacGiaHinh}" Margin="10,0,0,0" HorizontalOptions="Start" HeightRequest="25" Aspect="AspectFit"/>
+                                        <Label Text="{Binding KhoangTG}" VerticalOptions="Center" Margin="10,0,0,0"></Label>
                                     </StackLayout>
                                 </Grid>
                             </StackLayout>
