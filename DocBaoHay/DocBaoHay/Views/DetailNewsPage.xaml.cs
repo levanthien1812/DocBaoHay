@@ -26,16 +26,27 @@ namespace DocBaoHay.Views
 			InitializeData(baiBao);
 		}
 
-		private void InitializeData(BaiBao_ChuDe baiBao)
+		private async void InitializeData(BaiBao_ChuDe baiBao)
 		{
-			HttpClient http = new HttpClient();
 			//var baiBao_str = await http.GetStringAsync("http://192.168.56.1/docbaohay/api/bai-bao/" + baiBao.Id);
 			//var baiBao_obj = JsonConvert.DeserializeObject<BaiBao>(baiBao_str);
 			FollowBtn.CommandParameter = baiBao.TacGiaId;
 			AuthorImg.Source = baiBao.TacGiaHinh;
 			BaiBaoTitle.Text = baiBao.TieuDe;
 			BaiBaoTime.Text = baiBao.KhoangTG;
-		}
+
+            if (NguoiDung.nguoiDung != null)
+			{
+				HttpClient http = new HttpClient();
+				string url = "http://192.168.56.1/docbaohay/api/tac-gia/kiem-tra-theo-doi?nguoiDungId=" + NguoiDung.nguoiDung.Id + "&&tacGiaId=" + baiBao.TacGiaId;
+				int ketQua = int.Parse(await http.GetStringAsync(url));
+				if (ketQua == 1)
+				{
+					FollowBtn.Text = "Đã theo dõi";
+					FollowBtn.TextColor = Color.Green;
+				}
+			}
+        }
 
         private async void FollowBtn_Clicked(object sender, EventArgs e)
         {
@@ -48,7 +59,8 @@ namespace DocBaoHay.Views
 				{
 					await Navigation.PushAsync(new LoginPage());
 					return;
-				} 
+				}
+				return;
 			}
 
 			HttpClient http = new HttpClient();
@@ -59,10 +71,11 @@ namespace DocBaoHay.Views
 			if (ketQua == 1)
 			{
                 FollowBtn.Text = "Đã theo dõi";
+				FollowBtn.TextColor = Color.Green;
+				FollowBtn.IsEnabled = false;
             } else
 			{
 				await DisplayAlert("Thông báo", "Có lỗi xảy ra", "OK");
-				
 			}
         }
 

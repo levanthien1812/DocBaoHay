@@ -26,10 +26,10 @@
                     </StackLayout>
                 </Grid>
                 <StackLayout Margin="0,16,0,0">
-                    <Button x:Name="SavedBtn" Text="Đã lưu"></Button>
-                    <Button x:Name="FollowedBtn" Text="Đang theo dõi"></Button>
-                    <Button x:Name="RecentBtn" Text="Đọc gần đây"></Button>
-                    <Button x:Name="UpdateInfoBtn" Text="Cập nhật tài khoản"></Button>
+                    <Button x:Name="SavedBtn" Text="Đã lưu" Clicked="SavedBtn_Clicked"></Button>
+                    <Button x:Name="FollowedBtn" Text="Đang theo dõi" Clicked="FollowedBtn_Clicked"></Button>
+                    <Button x:Name="RecentBtn" Text="Đọc gần đây" Clicked="RecentBtn_Clicked"></Button>
+                    <Button x:Name="UpdateInfoBtn" Text="Cập nhật tài khoản" Clicked="UpdateInfoBtn_Clicked"></Button>
                 </StackLayout>
                 <Button x:Name="LogOutBtn" Text="Đăng xuất" VerticalOptions="End"></Button>
             </StackLayout>

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -19,6 +20,7 @@ namespace DocBaoHay.Views
         public LoginPage()
         {
             InitializeComponent();
+            SignUpTGR.Command = moveToSignUpCommand;
         }
 
         private async void LoginBtn_Clicked(object sender, EventArgs e)
@@ -45,6 +47,13 @@ namespace DocBaoHay.Views
                 await DisplayAlert("Thông báo", "Email hoặc Mật khẩu không đúng! Vui lòng thử lại", "OK");
                 MatKhauEntry.Text = string.Empty;
             }
+        }
+
+        private ICommand moveToSignUpCommand => new Command(moveToSignUp);
+
+        private async void moveToSignUp()
+        {
+            await Navigation.PushAsync(new SignUpPage());
         }
     }
 }

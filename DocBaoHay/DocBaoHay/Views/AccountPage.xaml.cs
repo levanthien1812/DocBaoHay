@@ -49,5 +49,25 @@ namespace DocBaoHay.Views
             UserUsername.Text = NguoiDung.nguoiDung.TenDangNhap.ToString();
             UserFullname.Text = NguoiDung.nguoiDung.HoTen.ToString();
         }
+
+        private void SavedBtn_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FollowedBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ManageFollowPage());
+        }
+
+        private void RecentBtn_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateInfoBtn_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
