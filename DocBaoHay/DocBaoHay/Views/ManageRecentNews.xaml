@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DocBaoHay.Views.ManageRecentNews"
+             Title="Các tin tức đã đọc gần đây">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="NewsLV" ItemSelected="NewsLV_ItemSelected" RowHeight="120">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout VerticalOptions="Center" Padding="10">
+                                <Grid Margin="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="130"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Frame Padding="0" Grid.RowSpan="2" Grid.Column="0" Grid.Row="0" CornerRadius="10">
+                                        <Image Source="{Binding Thumbnail}"  Aspect="AspectFill"/>
+                                    </Frame>
+
+                                    <Label Text="{Binding TieuDe}" Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" FontSize="17"></Label>
+                                    <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                                        <Image Source="{Binding TacGiaHinh}" Margin="10,0,0,0" HorizontalOptions="Start" HeightRequest="25" Aspect="AspectFit"/>
+                                        <Label Text="{Binding KhoangTG}" VerticalOptions="Center" Margin="10,0,0,0"></Label>
+                                    </StackLayout>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

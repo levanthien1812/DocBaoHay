@@ -15,6 +15,7 @@ namespace DocBaoHay.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class DetailNewsPage : ContentPage
 	{
+		BaiBao _baiBao;
 		public DetailNewsPage ()
 		{
 			InitializeComponent ();
@@ -24,6 +25,7 @@ namespace DocBaoHay.Views
 		{
 			InitializeComponent ();
 			InitializeData(baiBao);
+			CreateRead(baiBao);
 		}
 
 		private async void InitializeData(BaiBao_ChuDe baiBao)
@@ -82,6 +84,14 @@ namespace DocBaoHay.Views
         private void SaveBtn_Clicked(object sender, EventArgs e)
         {
 			SaveBtn.Text = "Đã lưu";
+        }
+
+		private async void CreateRead(BaiBao_ChuDe baiBao)
+		{
+			if (NguoiDung.nguoiDung == null) return;
+			HttpClient http = new HttpClient();
+			string url = "http://192.168.56.1/docbaohay/api/bai-bao/doc?nguoiDungId=" + NguoiDung.nguoiDung.Id + "&&baiBaoId=" + baiBao.Id;
+			await http.PostAsync(url, null);
         }
     }
 }

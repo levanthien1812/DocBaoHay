@@ -44,7 +44,7 @@ namespace DocBaoHay.Views
         private async void FollowedAuthorsRV_Refreshing(object sender, EventArgs e)
         {
             await Task.Delay(1000);
-            ((RefreshView)sender).IsRefreshing = true;
+            ((RefreshView)sender).IsRefreshing = false;
             InitializeData();
         }
     }

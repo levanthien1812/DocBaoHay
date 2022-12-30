@@ -62,7 +62,7 @@ namespace DocBaoHay.Views
 
         private void RecentBtn_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new ManageRecentNews());
         }
 
         private void UpdateInfoBtn_Clicked(object sender, EventArgs e)
