@@ -6,10 +6,10 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout VerticalOptions="Center" Padding="20" x:Name="NotSignedInSL">
-                <Label Text="Bạn đã có tài khoản?" FontSize="15"></Label>
-                <Button x:Name="LoginBtn" Text="Đăng nhập" Padding="10" BackgroundColor="Tomato" TextColor="White" Clicked="LoginBtn_Clicked" CornerRadius="30" Margin="0,0,0,10"></Button>
-                <Label Text="Bạn chưa có tài khoản?" FontSize="15"></Label>
-                <Button x:Name="SignUpBtn" Text="Đăng ký" Padding="10" TextColor="Tomato" BackgroundColor="White" Clicked="SignUpBtn_Clicked" CornerRadius="30" BorderColor="Tomato" BorderWidth="2"></Button>
+                <Label Text="Bạn đã có tài khoản?" FontSize="15" HorizontalOptions="Center"></Label>
+                <Button x:Name="LoginBtn" Text="Đăng nhập" WidthRequest="250" BackgroundColor="Tomato" TextColor="White" Clicked="LoginBtn_Clicked" CornerRadius="30" Margin="0,0,0,10" HorizontalOptions="Center"></Button>
+                <Label Text="Bạn chưa có tài khoản?" FontSize="15" HorizontalOptions="Center"></Label>
+                <Button x:Name="SignUpBtn" Text="Đăng ký" WidthRequest="250" TextColor="Tomato" BackgroundColor="White" Clicked="SignUpBtn_Clicked" CornerRadius="30" BorderColor="Tomato" BorderWidth="2" HorizontalOptions="Center"></Button>
             </StackLayout>
             <StackLayout VerticalOptions="Center" Padding="20"  x:Name="SignedInSL">
                 <Grid WidthRequest="300" BackgroundColor="Beige" Padding="12">
@@ -31,7 +31,7 @@
                     <Button x:Name="RecentBtn" Text="Đọc gần đây" Clicked="RecentBtn_Clicked"></Button>
                     <Button x:Name="UpdateInfoBtn" Text="Cập nhật tài khoản" Clicked="UpdateInfoBtn_Clicked"></Button>
                 </StackLayout>
-                <Button x:Name="LogOutBtn" Text="Đăng xuất" VerticalOptions="End"></Button>
+                <Button x:Name="LogOutBtn" Text="Đăng xuất" VerticalOptions="EndAndExpand" Clicked="LogOutBtn_Clicked"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

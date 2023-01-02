@@ -37,5 +37,24 @@ namespace DocBaoHay.Views
             BaiBao_ChuDe baiBao = e.SelectedItem as BaiBao_ChuDe;
             Navigation.PushAsync(new DetailNewsPage(baiBao));
         }
+
+        private async void DeleteAllBtn_Clicked(object sender, EventArgs e)
+        {
+            bool choose = await DisplayAlert("Thông báo", "Bạn có chắc chắn muốn xóa tất cả các bài báo đã xem?", "OK", "Hủy");
+            if (choose == false) return;
+
+            HttpClient httpClient = new HttpClient();
+
+            string url = "http://192.168.56.1/docbaohay/api/nguoi-dung/" + NguoiDung.nguoiDung.Id + "/bao-da-doc";
+            await httpClient.DeleteAsync(url);
+            await DisplayAlert("Thông báo", "Xóa thành công", "OK");
+        }
+
+        private async void ManageRV_Refreshing(object sender, EventArgs e)
+        {
+            await Task.Delay(1000);
+            ((RefreshView)sender).IsRefreshing = false;
+            InitializeData();
+        }
     }
 }

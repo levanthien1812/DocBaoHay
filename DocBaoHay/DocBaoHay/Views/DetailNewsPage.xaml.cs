@@ -33,6 +33,7 @@ namespace DocBaoHay.Views
 			//var baiBao_str = await http.GetStringAsync("http://192.168.56.1/docbaohay/api/bai-bao/" + baiBao.Id);
 			//var baiBao_obj = JsonConvert.DeserializeObject<BaiBao>(baiBao_str);
 			FollowBtn.CommandParameter = baiBao.TacGiaId;
+			SaveBtn.CommandParameter = baiBao.Id;
 			AuthorImg.Source = baiBao.TacGiaHinh;
 			BaiBaoTitle.Text = baiBao.TieuDe;
 			BaiBaoTime.Text = baiBao.KhoangTG;
@@ -81,9 +82,36 @@ namespace DocBaoHay.Views
 			}
         }
 
-        private void SaveBtn_Clicked(object sender, EventArgs e)
+        private async void SaveBtn_Clicked(object sender, EventArgs e)
         {
-			SaveBtn.Text = "Đã lưu";
+            int baiBaoId = int.Parse(SaveBtn.CommandParameter.ToString());
+
+            if (NguoiDung.nguoiDung == null)
+            {
+                bool choose = await DisplayAlert("Thông báo", "Cần đăng nhập để thực hiện", "OK", "Hủy");
+                if (choose == true)
+                {
+                    await Navigation.PushAsync(new LoginPage());
+                    return;
+                }
+                return;
+            }
+
+            HttpClient http = new HttpClient();
+            string url = "http://192.168.56.1/docbaohay/api/bai-bao/luu?nguoiDungId=" + NguoiDung.nguoiDung.Id + "&&baiBaoId=" + baiBaoId;
+            HttpResponseMessage ketQuaRes = await http.PostAsync(url, null);
+
+            int ketQua = int.Parse(await ketQuaRes.Content.ReadAsStringAsync());
+            if (ketQua == 1)
+            {
+                SaveBtn.Text = "Đã lưu";
+                SaveBtn.TextColor = Color.Green;
+                SaveBtn.IsEnabled = false;
+            }
+            else
+            {
+                await DisplayAlert("Thông báo", "Có lỗi xảy ra", "OK");
+            }
         }
 
 		private async void CreateRead(BaiBao_ChuDe baiBao)

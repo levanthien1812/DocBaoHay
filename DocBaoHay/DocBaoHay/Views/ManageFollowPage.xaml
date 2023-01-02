@@ -40,13 +40,20 @@
                     TextColor="Black"
                     TextColorSelected="blue"
                     FontSize="12">
-                <Grid
-                    BackgroundColor="White">
-                    <Label    
-                            HorizontalOptions="Center"
-                            VerticalOptions="Center"
-                            Text="TabContent2" />
-                </Grid>
+                <RefreshView x:Name="FollowedTopicsRV" Refreshing="FollowedTopicsRV_Refreshing">
+                    <ListView x:Name="FollowedTopicsLV" RowHeight="70">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Padding="10" Orientation="Horizontal">
+                                        <Label x:Name="TopicName" Text="{Binding Ten}" VerticalOptions="Center" FontSize="19" Margin="10,0,0,0"></Label>
+                                        <Button Text="Bỏ theo dõi" x:Name="UnfollowTopic" CornerRadius="20" Padding="0,0,0,0" BackgroundColor="White" TextColor="#777" BorderColor="#777" BorderWidth="1" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Clicked="UnfollowTopic_Clicked" CommandParameter="{Binding Id}"></Button>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </RefreshView>
             </xct:TabViewItem>
         </xct:TabView>
     </Grid>

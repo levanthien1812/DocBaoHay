@@ -52,7 +52,7 @@ namespace DocBaoHay.Views
 
         private void SavedBtn_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new ManageSavedNews());
         }
 
         private void FollowedBtn_Clicked(object sender, EventArgs e)
@@ -67,7 +67,15 @@ namespace DocBaoHay.Views
 
         private void UpdateInfoBtn_Clicked(object sender, EventArgs e)
         {
+            Navigation.PushAsync(new PersonalInfoPage());
+        }
 
+        private async void LogOutBtn_Clicked(object sender, EventArgs e)
+        {
+            bool choose = await DisplayAlert("Thông báo", "Bạn có chắc chắn muốn đăng xuất", "OK", "Hủy");
+            if (choose == false) return;
+            NguoiDung.nguoiDung = null;
+            OnAppearing();
         }
     }
 }
