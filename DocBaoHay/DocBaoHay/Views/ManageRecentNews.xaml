@@ -4,8 +4,9 @@
              x:Class="DocBaoHay.Views.ManageRecentNews"
              Title="Các tin tức đã đọc gần đây">
     <ContentPage.Content>
-        <RefreshView x:Name="ManageRV" Refreshing="ManageRV_Refreshing">
-            <StackLayout>
+        <StackLayout>
+            <Label x:Name="ThongBao" Margin="0,20,0,0" HorizontalOptions="Center" FontSize="16"></Label>
+            <RefreshView x:Name="ManageRV" Refreshing="ManageRV_Refreshing">
                 <ListView x:Name="NewsLV" ItemSelected="NewsLV_ItemSelected" RowHeight="120">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -36,8 +37,8 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button x:Name="DeleteAllBtn" Margin="0,0,0,10" CornerRadius="20" Padding="20,0,20,0" Text="Xóa tất cả" BackgroundColor="White" TextColor="#777" BorderColor="#777" BorderWidth="1" Clicked="DeleteAllBtn_Clicked" HeightRequest="22" VerticalOptions="End" HorizontalOptions="Center"></Button>
-            </StackLayout>
-        </RefreshView>
+            </RefreshView>
+            <Button x:Name="DeleteAllBtn" Margin="0,0,0,10" CornerRadius="20" Padding="20,0,20,0" Text="Xóa tất cả" BackgroundColor="White" TextColor="#777" BorderColor="#777" BorderWidth="1" Clicked="DeleteAllBtn_Clicked" HeightRequest="22" VerticalOptions="End" HorizontalOptions="Center"></Button>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

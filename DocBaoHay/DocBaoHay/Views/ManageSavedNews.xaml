@@ -5,6 +5,7 @@
              Title="Các tin tức đã lưu">
     <ContentPage.Content>
         <StackLayout Padding="10">
+            <Label x:Name="ThongBao" Margin="0,20,0,0" HorizontalOptions="Center" FontSize="16"></Label>
             <ListView x:Name="NewsLV" ItemSelected="NewsLV_ItemSelected" RowHeight="120">
                 <ListView.ItemTemplate>
                     <DataTemplate>

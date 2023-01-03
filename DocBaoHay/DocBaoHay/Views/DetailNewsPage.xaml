@@ -3,17 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DocBaoHay.Views.DetailNewsPage">
     <ContentPage.Content>
-        <StackLayout Padding="10">
-            <StackLayout x:Name="Header" Orientation="Horizontal" Padding="0,6,0,6">
-                <Image x:Name="AuthorImg" HeightRequest="30" Margin="0,0,4,0"></Image>
-                <Button x:Name="FollowBtn" CornerRadius="20" Padding="0,0,0,0" Text="Theo dõi" BackgroundColor="White" TextColor="#777" BorderColor="#777" BorderWidth="1" Clicked="FollowBtn_Clicked" HeightRequest="20"></Button>
-                <Button x:Name="SaveBtn" CornerRadius="20" Padding="0,0,0,0" Text="Lưu" BackgroundColor="White" TextColor="#777" BorderColor="#777" BorderWidth="1" Clicked="SaveBtn_Clicked" HeightRequest="20" HorizontalOptions="EndAndExpand"></Button>
+        <ScrollView>
+            <StackLayout x:Name="MainSL" Padding="10">
+                <StackLayout x:Name="Header" Orientation="Horizontal" Padding="0,6,0,6">
+                    <Image x:Name="AuthorImg" HeightRequest="30" Margin="0,0,4,0"></Image>
+                    <Button x:Name="FollowBtn" CornerRadius="20" Padding="0,0,0,0" Text="Theo dõi" BackgroundColor="White" TextColor="#777" BorderColor="#777" BorderWidth="1" Clicked="FollowBtn_Clicked" HeightRequest="20"></Button>
+                    <Button x:Name="SaveBtn" CornerRadius="20" Padding="0,0,0,0" Text="Lưu" BackgroundColor="White" TextColor="#777" BorderColor="#777" BorderWidth="1" Clicked="SaveBtn_Clicked" HeightRequest="20" HorizontalOptions="EndAndExpand"></Button>
+                </StackLayout>
+                <StackLayout x:Name="Content">
+                    <Label x:Name="BaiBaoTitle" FontSize="30" FontAttributes="Bold" Margin="0,0,0,5"></Label>
+                    <Label x:Name="BaiBaoTime" Margin="0,0,0,5"></Label>
+                    <Image x:Name="BaiBaoImage" WidthRequest="300"></Image>
+                </StackLayout>
             </StackLayout>
-            <StackLayout x:Name="Content">
-                <Label x:Name="BaiBaoTitle" FontSize="30" FontAttributes="Bold" Margin="0,0,0,5"></Label>
-                <Label x:Name="BaiBaoTime" Margin="0,0,0,5"></Label>
-                <Label x:Name="label"></Label>
-            </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

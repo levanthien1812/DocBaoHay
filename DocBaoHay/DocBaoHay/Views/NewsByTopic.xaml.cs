@@ -28,10 +28,10 @@ namespace DocBaoHay.Views
 
         async void InitializeData(int chudeId)
         {
-            HttpClient httpClient = new HttpClient();
+            HttpClient http1 = new HttpClient();
 
-            string url = "http://192.168.56.1/docbaohay/api/bai-bao?ChuDe=" + chudeId.ToString();
-            var BaiBaoList_str = await httpClient.GetStringAsync(url);
+            string url = "http://192.168.56.1/docbaohay/api/bai-bao?ChuDe=" + chudeId;
+            var BaiBaoList_str = await http1.GetStringAsync(url);
 
             var BaiBaoList = JsonConvert.DeserializeObject<List<BaiBao_ChuDe>>(BaiBaoList_str);
             NewsLV.ItemsSource = BaiBaoList;
@@ -39,8 +39,9 @@ namespace DocBaoHay.Views
 
             if (NguoiDung.nguoiDung != null)
             {
-                string check_url = "http://192.168.56.1/docbaohay/api/tac-gia/kiem-tra-theo-doi?nguoiDungId=" + NguoiDung.nguoiDung.Id + "&&chuDeId=" + chudeId;
-                int ketQua = int.Parse(await httpClient.GetStringAsync(check_url));
+                HttpClient http2 = new HttpClient();
+                string check_url = "http://192.168.56.1/docbaohay/api/chu-de/kiem-tra-theo-doi?nguoiDungId=" + NguoiDung.nguoiDung.Id + "&&chuDeId=" + chudeId;
+                int ketQua = int.Parse(await http2.GetStringAsync(check_url));
                 if (ketQua == 1)
                 {
                     FollowBtn.Text = "Đã theo dõi";

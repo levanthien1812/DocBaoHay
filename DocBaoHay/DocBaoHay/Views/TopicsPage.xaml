@@ -12,17 +12,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="10">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="10"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="10"/>
-                                </Grid.ColumnDefinitions>
+                            <Grid RowDefinitions="*,*,*" ColumnDefinitions="10,*,10">
 
                                 <StackLayout Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="0">
                                     <Frame CornerRadius="10" Padding="0">

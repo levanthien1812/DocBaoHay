@@ -30,6 +30,17 @@ namespace DocBaoHay.Views
 
             var BaiBaoList = JsonConvert.DeserializeObject<List<BaiBao_ChuDe>>(BaiBaoList_str);
             NewsLV.ItemsSource = BaiBaoList;
+
+            if (BaiBaoList.Count == 0)
+            {
+                ThongBao.IsVisible = true;
+                ThongBao.Text = "Bạn không xem tin nào gần đây.";
+            }
+            else
+            {
+                ThongBao.IsVisible = false;
+                ThongBao.Text = string.Empty;
+            }
         }
 
         private void NewsLV_ItemSelected(object sender, SelectedItemChangedEventArgs e)

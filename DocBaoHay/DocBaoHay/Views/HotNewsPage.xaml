@@ -2,6 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DocBaoHay.Views.HotNewsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Theo dõi" x:Name="SearchBtn" Clicked="SearchBtn_Clicked" IconImageSource="search.png"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to Xamarin.Forms!"

@@ -16,5 +16,10 @@ namespace DocBaoHay.Views
         {
             InitializeComponent();
         }
+
+        private void SearchBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SearchPage());
+        }
     }
 }

@@ -30,25 +30,59 @@ namespace DocBaoHay.Views
 
 		private async void InitializeData(BaiBao_ChuDe baiBao)
 		{
-			//var baiBao_str = await http.GetStringAsync("http://192.168.56.1/docbaohay/api/bai-bao/" + baiBao.Id);
-			//var baiBao_obj = JsonConvert.DeserializeObject<BaiBao>(baiBao_str);
+			HttpClient http = new HttpClient();
+			var baiBao_str = await http.GetStringAsync("http://192.168.56.1/docbaohay/api/bai-bao/" + baiBao.Id);
+			var baiBao_obj = JsonConvert.DeserializeObject<List<BaiBao>>(baiBao_str)[0];
 			FollowBtn.CommandParameter = baiBao.TacGiaId;
 			SaveBtn.CommandParameter = baiBao.Id;
 			AuthorImg.Source = baiBao.TacGiaHinh;
 			BaiBaoTitle.Text = baiBao.TieuDe;
 			BaiBaoTime.Text = baiBao.KhoangTG;
 
+			var doanVan_str = await http.GetStringAsync("http://192.168.56.1/docbaohay/api/bai-bao/" + baiBao.Id + "/doan-van");
+            var doanVan = JsonConvert.DeserializeObject<List<DoanVan>>(doanVan_str);
+
+			for (int i = 0; i < doanVan.Count; i++)
+			{
+				if (doanVan[i].Loai == 1)
+				{
+					Label lb = new Label();
+					lb.FontSize = 18;
+					lb.Margin = new Thickness(0, 5, 0, 0);
+					lb.Text = doanVan[i].NoiDung;
+					MainSL.Children.Add(lb);
+				} else
+				{
+					Image img = new Image();
+                    img.Margin = new Thickness(0, 5, 0, 0);
+					img.WidthRequest = 300;
+                    img.Source = doanVan[i].NoiDung.ToString();
+					MainSL.Children.Add(img);
+				}
+			}
+
             if (NguoiDung.nguoiDung != null)
 			{
-				HttpClient http = new HttpClient();
-				string url = "http://192.168.56.1/docbaohay/api/tac-gia/kiem-tra-theo-doi?nguoiDungId=" + NguoiDung.nguoiDung.Id + "&&tacGiaId=" + baiBao.TacGiaId;
-				int ketQua = int.Parse(await http.GetStringAsync(url));
-				if (ketQua == 1)
+				// Kiểm tra theo dõi
+				string url1 = "http://192.168.56.1/docbaohay/api/tac-gia/kiem-tra-theo-doi?nguoiDungId=" + NguoiDung.nguoiDung.Id + "&&tacGiaId=" + baiBao.TacGiaId;
+				int ketQua1 = int.Parse(await http.GetStringAsync(url1));
+				if (ketQua1 == 1)
 				{
 					FollowBtn.Text = "Đã theo dõi";
 					FollowBtn.TextColor = Color.Green;
+					FollowBtn.IsEnabled= false;
 				}
-			}
+
+				// Kiểm tra lưu
+                string url2 = "http://192.168.56.1/docbaohay/api/bai-bao/kiem-tra-luu?nguoiDungId=" + NguoiDung.nguoiDung.Id + "&&baiBaoId=" + baiBao.Id;
+                int ketQua2 = int.Parse(await http.GetStringAsync(url2));
+                if (ketQua2 == 1)
+                {
+                    SaveBtn.Text = "Đã lưu";
+                    SaveBtn.TextColor = Color.Green;
+					SaveBtn.IsEnabled= false;
+                }
+            }
         }
 
         private async void FollowBtn_Clicked(object sender, EventArgs e)

@@ -17,21 +17,25 @@
                     TextColor="black"
                     TextColorSelected="blue"
                     FontSize="12">
-                <RefreshView x:Name="FollowedAuthorsRV" Refreshing="FollowedAuthorsRV_Refreshing">
-                    <ListView x:Name="FollowedAuthorsLV" RowHeight="70">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout Padding="10" Orientation="Horizontal">
-                                        <Image x:Name="AuthorImg" Source="{Binding Hinh}" VerticalOptions="Center" HeightRequest="30"></Image>
-                                        <Label x:Name="AuthorName" Text="{Binding Ten}" VerticalOptions="Center" FontSize="19" Margin="10,0,0,0"></Label>
-                                        <Button Text="Bỏ theo dõi" x:Name="UnfollowAuthor" CornerRadius="20" Padding="0,0,0,0" BackgroundColor="White" TextColor="#777" BorderColor="#777" BorderWidth="1" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Clicked="UnfollowAuthor_Clicked" CommandParameter="{Binding Id}"></Button>
-                                    </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </RefreshView>
+                <StackLayout>
+                    <Label x:Name="ThongBao1" Margin="0,20,0,0" HorizontalOptions="Center" FontSize="16"></Label>
+                    <RefreshView x:Name="FollowedAuthorsRV" Refreshing="FollowedAuthorsRV_Refreshing">
+                        <ListView x:Name="FollowedAuthorsLV" RowHeight="70">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Padding="10" Orientation="Horizontal">
+                                            <Image x:Name="AuthorImg" Source="{Binding Hinh}" VerticalOptions="Center" HeightRequest="30"></Image>
+                                            <Label x:Name="AuthorName" Text="{Binding Ten}" VerticalOptions="Center" FontSize="19" Margin="10,0,0,0"></Label>
+                                            <Button Text="Bỏ theo dõi" x:Name="UnfollowAuthor" CornerRadius="20" Padding="0,0,0,0" BackgroundColor="White" TextColor="#777" BorderColor="#777" BorderWidth="1" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Clicked="UnfollowAuthor_Clicked" CommandParameter="{Binding Id}"></Button>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </RefreshView>
+                </StackLayout>
+                
                 
             </xct:TabViewItem>
 
@@ -40,20 +44,24 @@
                     TextColor="Black"
                     TextColorSelected="blue"
                     FontSize="12">
-                <RefreshView x:Name="FollowedTopicsRV" Refreshing="FollowedTopicsRV_Refreshing">
-                    <ListView x:Name="FollowedTopicsLV" RowHeight="70">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout Padding="10" Orientation="Horizontal">
-                                        <Label x:Name="TopicName" Text="{Binding Ten}" VerticalOptions="Center" FontSize="19" Margin="10,0,0,0"></Label>
-                                        <Button Text="Bỏ theo dõi" x:Name="UnfollowTopic" CornerRadius="20" Padding="0,0,0,0" BackgroundColor="White" TextColor="#777" BorderColor="#777" BorderWidth="1" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Clicked="UnfollowTopic_Clicked" CommandParameter="{Binding Id}"></Button>
-                                    </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </RefreshView>
+                <StackLayout>
+                    <Label x:Name="ThongBao2" Margin="0,20,0,0" HorizontalOptions="Center" FontSize="16"></Label>
+                    <RefreshView x:Name="FollowedTopicsRV" Refreshing="FollowedTopicsRV_Refreshing">
+                        <ListView x:Name="FollowedTopicsLV" RowHeight="70">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Padding="10" Orientation="Horizontal">
+                                            <Label x:Name="TopicName" Text="{Binding Ten}" VerticalOptions="Center" FontSize="19" Margin="10,0,0,0"></Label>
+                                            <Button Text="Bỏ theo dõi" x:Name="UnfollowTopic" CornerRadius="20" Padding="0,0,0,0" BackgroundColor="White" TextColor="#777" BorderColor="#777" BorderWidth="1" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Clicked="UnfollowTopic_Clicked" CommandParameter="{Binding Id}"></Button>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </RefreshView>
+                </StackLayout>
+                
             </xct:TabViewItem>
         </xct:TabView>
     </Grid>

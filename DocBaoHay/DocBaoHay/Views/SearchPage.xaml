@@ -1,12 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DocBaoHay.Views.NewsForYouPage"
-             Title="Tin cho bạn">
+             x:Class="DocBaoHay.Views.SearchPage">
     <ContentPage.Content>
-        <StackLayout Padding="10">
-            <RefreshView x:Name="ManageRV" Refreshing="ManageRV_Refreshing">
-                <ListView x:Name="NewsLV" ItemSelected="NewsLV_ItemSelected" RowHeight="120">
+        <StackLayout>
+            <Entry x:Name="SearchEntry" Placeholder="Nhập nội dung tìm kiếm" TextChanged="SearchEntry_TextChanged"></Entry>
+            <StackLayout x:Name="DeXuatTacGia">
+                <Label Text="Các nguồn báo phù hợp"></Label>
+                <CollectionView x:Name="DeXuatTacGiaCV"
+                            ItemsLayout="VerticalGrid, 2"
+                            SelectionMode="Single"
+                            SelectionChanged="DeXuatTacGiaCV_SelectionChanged">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal" Padding="20,10,10,10">
+                                <Image Source="{Binding Hinh}" WidthRequest="100"></Image>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+            <StackLayout x:Name="DeXuatBaiBao">
+                <Label Text="Các bài báo phù hợp"></Label>
+                <ListView x:Name="DeXuatBaiBaoLV" ItemSelected="DeXuatBaiBaoLV_ItemSelected" RowHeight="120">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -36,7 +52,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            </RefreshView>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -30,6 +30,18 @@ namespace DocBaoHay.Views
 
             var BaiBaoList = JsonConvert.DeserializeObject<List<BaiBao_ChuDe>>(BaiBaoList_str);
             NewsLV.ItemsSource = BaiBaoList;
+
+            if (BaiBaoList.Count == 0)
+            {
+                ThongBao.IsVisible = true;
+                ThongBao.Text = "Bạn không xem tin nào gần đây.";
+                DeleteAllBtn.IsVisible= false;
+            } else
+            {
+                ThongBao.IsVisible = false;
+                ThongBao.Text = string.Empty;
+                DeleteAllBtn.IsVisible = true;
+            }
         }
 
         private void NewsLV_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -45,9 +57,10 @@ namespace DocBaoHay.Views
 
             HttpClient httpClient = new HttpClient();
 
-            string url = "http://192.168.56.1/docbaohay/api/nguoi-dung/" + NguoiDung.nguoiDung.Id + "/bao-da-doc";
+            string url = "http://192.168.56.1/docbaohay/api/nguoi-dung/" + NguoiDung.nguoiDung.Id + "/bao-da-doc/xoa";
             await httpClient.DeleteAsync(url);
             await DisplayAlert("Thông báo", "Xóa thành công", "OK");
+            InitializeData();
         }
 
         private async void ManageRV_Refreshing(object sender, EventArgs e)
