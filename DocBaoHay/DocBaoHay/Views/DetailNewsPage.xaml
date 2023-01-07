@@ -14,6 +14,7 @@
                     <Label x:Name="BaiBaoTitle" FontSize="30" FontAttributes="Bold" Margin="0,0,0,5"></Label>
                     <Label x:Name="BaiBaoTime" Margin="0,0,0,5"></Label>
                     <Image x:Name="BaiBaoImage" WidthRequest="300"></Image>
+                    <Label x:Name="BaiBaoDescription" FontSize="20" FontAttributes="Bold"></Label>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

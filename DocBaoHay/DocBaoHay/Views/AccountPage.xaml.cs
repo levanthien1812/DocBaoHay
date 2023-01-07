@@ -65,9 +65,17 @@ namespace DocBaoHay.Views
             Navigation.PushAsync(new ManageRecentNews());
         }
 
-        private void UpdateInfoBtn_Clicked(object sender, EventArgs e)
+        private async void UpdateInfoBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new PersonalInfoPage());
+            string result = await DisplayPromptAsync("Xác nhận", "Vui lòng nhập mật khẩu để tiếp tục", "OK", "Hủy", "Mật khẩu của bạn");
+            if (result == "") return;
+            if (result != NguoiDung.nguoiDung.MatKhau)
+            {
+                bool choose = await DisplayAlert("Thông báo", "Bạn đã nhập sai mật khẩu! Vui lòng thử lại", "OK", "Hủy");
+                if (choose) UpdateInfoBtn_Clicked(sender, EventArgs.Empty);
+                return;
+            }
+            await Navigation.PushAsync(new PersonalInfoPage());
         }
 
         private async void LogOutBtn_Clicked(object sender, EventArgs e)

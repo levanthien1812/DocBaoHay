@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DocBaoHay.Views.SearchPage">
+             x:Class="DocBaoHay.Views.SearchPage"
+             Title="Tìm kiếm bài báo">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Padding="10">
             <Entry x:Name="SearchEntry" Placeholder="Nhập nội dung tìm kiếm" TextChanged="SearchEntry_TextChanged"></Entry>
             <StackLayout x:Name="DeXuatTacGia">
-                <Label Text="Các nguồn báo phù hợp"></Label>
+                <Label Text="Các nguồn báo phù hợp" FontSize="18"></Label>
                 <CollectionView x:Name="DeXuatTacGiaCV"
                             ItemsLayout="VerticalGrid, 2"
                             SelectionMode="Single"
@@ -21,7 +22,7 @@
                 </CollectionView>
             </StackLayout>
             <StackLayout x:Name="DeXuatBaiBao">
-                <Label Text="Các bài báo phù hợp"></Label>
+                <Label Text="Các bài báo phù hợp" FontSize="18"></Label>
                 <ListView x:Name="DeXuatBaiBaoLV" ItemSelected="DeXuatBaiBaoLV_ItemSelected" RowHeight="120">
                     <ListView.ItemTemplate>
                         <DataTemplate>

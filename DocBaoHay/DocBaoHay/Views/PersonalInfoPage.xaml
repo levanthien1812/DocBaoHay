@@ -1,11 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DocBaoHay.Views.PersonalInfoPage">
+             x:Class="DocBaoHay.Views.PersonalInfoPage"
+             Title="Cập nhật thông tin cá nhân">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Thay đổi thông tin cá nhân"/>
-            
+        <StackLayout Padding="20" VerticalOptions="Center">
+            <Label Text="Cập nhật thông tin cá nhân" HorizontalOptions="Center" FontSize="24" TextColor="Orange"/>
+            <StackLayout Margin="0,10,0,0">
+                <Label Text="Họ và tên" FontSize="18"></Label>
+                <Entry x:Name="HoTenEntry"></Entry>
+                <Label Text="Tên đăng nhập" FontSize="18"></Label>
+                <Entry x:Name="TenDangNhapEntry"></Entry>
+                <Label Text="Email" FontSize="18"></Label>
+                <Entry x:Name="EmailEntry"></Entry>
+                <Label Text="Mật khẩu" FontSize="18"></Label>
+                <Entry x:Name="MatKhauEntry" IsPassword="True"></Entry>
+                <Button x:Name="UpdateInfoBtn" Text="Cập nhật" HorizontalOptions="Center" HeightRequest="40" Clicked="UpdateInfoBtn_Clicked"></Button>
+                <Label x:Name="lb"></Label>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

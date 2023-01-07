@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -23,7 +23,19 @@ namespace DocBaoHay.Views
 
         async void InitializeData()
         {
-            if (NguoiDung.nguoiDung == null) return;
+            if (NguoiDung.nguoiDung == null)
+            {
+                MainSL.VerticalOptions = LayoutOptions.Center;
+                ThongBaoSL.IsVisible = true;
+                ManageRV.IsVisible = false;
+                LoginTGR.Command = moveToLoginCommand;
+                return;
+            } else
+            {
+                ThongBaoSL.IsVisible = false;
+                ManageRV.IsVisible = true;
+                MainSL.VerticalOptions = LayoutOptions.Start;
+            }
 
             HttpClient httpClient = new HttpClient();
 
@@ -44,6 +56,18 @@ namespace DocBaoHay.Views
         {
             await Task.Delay(1000);
             ((RefreshView)sender).IsRefreshing = false;
+            InitializeData();
+        }
+
+        private ICommand moveToLoginCommand => new Command(moveToLogin);
+
+        private async void moveToLogin()
+        {
+            await Navigation.PushAsync(new LoginPage());
+        }
+
+        protected override void OnAppearing()
+        {
             InitializeData();
         }
     }

@@ -4,7 +4,15 @@
              x:Class="DocBaoHay.Views.NewsForYouPage"
              Title="Tin cho bạn">
     <ContentPage.Content>
-        <StackLayout Padding="10">
+        <StackLayout x:Name="MainSL" Padding="10">
+            <StackLayout x:Name="ThongBaoSL">
+                <Label Text="Vui lòng đăng nhập để xem các bài báo dành cho bạn" FontSize="18" HorizontalTextAlignment="Center"></Label>
+                <Label Text="Đăng nhập" TextColor="Orange" FontSize="18" FontAttributes="Bold" HorizontalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="LoginTGR"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
             <RefreshView x:Name="ManageRV" Refreshing="ManageRV_Refreshing">
                 <ListView x:Name="NewsLV" ItemSelected="NewsLV_ItemSelected" RowHeight="120">
                     <ListView.ItemTemplate>

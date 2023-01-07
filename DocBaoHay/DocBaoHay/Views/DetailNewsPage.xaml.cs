@@ -38,6 +38,7 @@ namespace DocBaoHay.Views
 			AuthorImg.Source = baiBao.TacGiaHinh;
 			BaiBaoTitle.Text = baiBao.TieuDe;
 			BaiBaoTime.Text = baiBao.KhoangTG;
+			BaiBaoDescription.Text = baiBao_obj.MoTa;
 
 			var doanVan_str = await http.GetStringAsync("http://192.168.56.1/docbaohay/api/bai-bao/" + baiBao.Id + "/doan-van");
             var doanVan = JsonConvert.DeserializeObject<List<DoanVan>>(doanVan_str);
@@ -51,15 +52,26 @@ namespace DocBaoHay.Views
 					lb.Margin = new Thickness(0, 5, 0, 0);
 					lb.Text = doanVan[i].NoiDung;
 					MainSL.Children.Add(lb);
-				} else
+				} 
+				if (doanVan[i].Loai == 2)
 				{
 					Image img = new Image();
                     img.Margin = new Thickness(0, 5, 0, 0);
-					img.WidthRequest = 300;
+					img.WidthRequest = 400;
                     img.Source = doanVan[i].NoiDung.ToString();
 					MainSL.Children.Add(img);
 				}
-			}
+                if (doanVan[i].Loai == 3)
+				{
+                    Label lb = new Label();
+                    lb.FontSize = 19;
+                    lb.Margin = new Thickness(0, 5, 0, 0);
+					lb.FontAttributes= FontAttributes.Bold;
+                    lb.Text = doanVan[i].NoiDung;
+                    MainSL.Children.Add(lb);
+                }
+
+            }
 
             if (NguoiDung.nguoiDung != null)
 			{

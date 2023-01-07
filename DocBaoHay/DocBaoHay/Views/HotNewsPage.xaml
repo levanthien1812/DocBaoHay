@@ -3,13 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DocBaoHay.Views.HotNewsPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Theo dõi" x:Name="SearchBtn" Clicked="SearchBtn_Clicked" IconImageSource="search.png"/>
+        <ToolbarItem Text="Tìm kiếm" x:Name="SearchBtn" Clicked="SearchBtn_Clicked" IconImageSource="search.png"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="10">
+            <RefreshView x:Name="HotNewsRV" Refreshing="HotNewsRV_Refreshing">
+                <ListView x:Name="NewsLV" ItemSelected="NewsLV_ItemSelected" RowHeight="120">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout VerticalOptions="Center" Padding="10">
+                                    <Grid Margin="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="130"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Frame Padding="0" Grid.RowSpan="2" Grid.Column="0" Grid.Row="0" CornerRadius="10">
+                                            <Image Source="{Binding Thumbnail}"  Aspect="AspectFill"/>
+                                        </Frame>
+
+                                        <Label Text="{Binding TieuDe}" Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" FontSize="17"></Label>
+                                        <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                                            <Image Source="{Binding TacGiaHinh}" Margin="10,0,0,0" HorizontalOptions="Start" HeightRequest="25" Aspect="AspectFit"/>
+                                            <Label Text="{Binding KhoangTG}" VerticalOptions="Center" Margin="10,0,0,0"></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </RefreshView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
