@@ -24,6 +24,15 @@ namespace DocBaoHay.Views
             {
                 NotSignedInSL.IsVisible = false;
                 SignedInSL.IsVisible = true;
+                if (NguoiDung.nguoiDung.QuanTriVien == true)
+                {
+                    AdminSL.IsVisible = true;
+                    SignedInBtns.IsVisible = false;
+                } else
+                {
+                    AdminSL.IsVisible = false;
+                    SignedInBtns.IsVisible = true;
+                }
                 initializeSignedIn();
             }
             else
@@ -84,6 +93,21 @@ namespace DocBaoHay.Views
             if (choose == false) return;
             NguoiDung.nguoiDung = null;
             OnAppearing();
+        }
+
+        private void ManageNewsBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ManageNewsPage());
+        }
+
+        private void ManageTopicsBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ManageTopicsPage());
+        }
+
+        private void ManageAuthorsBtn_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

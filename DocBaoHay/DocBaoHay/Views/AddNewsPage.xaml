@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DocBaoHay.Views.AddNewsPage">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Thêm tin tức" FontSize="22" HorizontalOptions="Center"/>
+            <Label Text="Tiêu đề" FontSize="18"></Label>
+            <Entry x:Name="TieuDe" FontSize="18"></Entry>
+            <Label Text="Hình thumbnail" FontSize="18"></Label>
+            <Entry x:Name="Thumbnail" FontSize="18"></Entry>
+            <Label Text="Mô tả" FontSize="18"></Label>
+            <Entry x:Name="MoTa" FontSize="18"></Entry>
+            <Label Text="Tác giả" FontSize="18"></Label>
+            <Picker x:Name="TacGiaPicker" FontSize="18"></Picker>
+            <Label Text="Chủ đề" FontSize="18"></Label>
+            <Picker x:Name="ChuDePicker" FontSize="18"></Picker>
+            <Button x:Name="AddContentBtn" Text="Thêm nội dung bài báo" Clicked="AddContentBtn_Clicked" FontSize="18"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

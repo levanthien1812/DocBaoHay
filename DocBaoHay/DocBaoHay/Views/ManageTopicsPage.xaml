@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DocBaoHay.Views.ManageTopicsPage"
+             Title="Quản lý chủ đề">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Thêm" x:Name="AddBtn" Clicked="AddBtn_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <RefreshView x:Name="ManageRV" Refreshing="ManageRV_Refreshing">
+            <ListView x:Name="NewsLV" RowHeight="80">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout VerticalOptions="Center" Padding="10">
+                                <Grid Margin="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="90"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding Ten}" Margin="10,0,0,0" Grid.Row="0" Grid.Column="0" FontSize="17"></Label>
+                                    <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                                        <Image Source="{Binding Hinh}" Margin="10,0,0,0" HorizontalOptions="Start" HeightRequest="40" Aspect="AspectFit"/>
+                                    </StackLayout>
+                                    <ImageButton Source="delete.png" x:Name="DeleteBtn" Clicked="DeleteBtn_Clicked" Grid.Column="2" Grid.Row="0" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" WidthRequest="30" CommandParameter="{Binding Id}"></ImageButton>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

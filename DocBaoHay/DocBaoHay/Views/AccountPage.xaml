@@ -25,13 +25,19 @@
                         <Label x:Name="UserFullname" Text="" FontSize="17"></Label>
                     </StackLayout>
                 </Grid>
-                <StackLayout Margin="0,16,0,0">
+                <StackLayout Margin="0,16,0,0" x:Name="SignedInBtns">
                     <Button x:Name="SavedBtn" Text="Đã lưu" Clicked="SavedBtn_Clicked"></Button>
                     <Button x:Name="FollowedBtn" Text="Đang theo dõi" Clicked="FollowedBtn_Clicked"></Button>
                     <Button x:Name="RecentBtn" Text="Đọc gần đây" Clicked="RecentBtn_Clicked"></Button>
                     <Button x:Name="UpdateInfoBtn" Text="Cập nhật tài khoản" Clicked="UpdateInfoBtn_Clicked"></Button>
+                    <Button x:Name="LogOutBtn" Text="Đăng xuất" Clicked="LogOutBtn_Clicked"></Button>
                 </StackLayout>
-                <Button x:Name="LogOutBtn" Text="Đăng xuất" VerticalOptions="EndAndExpand" Clicked="LogOutBtn_Clicked"></Button>
+                
+                <StackLayout x:Name="AdminSL" Padding="20">
+                    <Button x:Name="ManageNewsBtn" Text="Quản lý bài báo" Clicked="ManageNewsBtn_Clicked"></Button>
+                    <Button x:Name="ManageTopicsBtn" Text="Quản lý chủ đề" Clicked="ManageTopicsBtn_Clicked"></Button>
+                    <Button x:Name="ManageAuthorsBtn" Text="Quản lý tác giả" Clicked="ManageAuthorsBtn_Clicked"></Button>
+                </StackLayout>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
