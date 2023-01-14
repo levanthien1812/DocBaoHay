@@ -50,6 +50,11 @@ namespace DocBaoHay.Views
             int tacGia = TacGiaList[TacGiaPicker.SelectedIndex].Id;
             int chuDe = ChuDeList[ChuDePicker.SelectedIndex].Id;
 
+            if (tieuDe == "" || thumbnail == "" || moTa == "" || tacGia == 0 || chuDe == 0) {
+                await DisplayAlert("Thông báo", "Vui lòng nhập đầy đủ thông tin!", "OK");
+                return;
+            }
+
             BaiBao baiBao = new BaiBao
             {
                 TieuDe = tieuDe,

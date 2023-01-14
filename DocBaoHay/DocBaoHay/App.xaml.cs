@@ -5,6 +5,8 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+[assembly: ExportFont("RobotoSlab_Medium.ttf", Alias = "RobotoSlab")]
+
 namespace DocBaoHay
 {
     public partial class App : Application

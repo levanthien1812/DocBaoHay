@@ -36,5 +36,10 @@ namespace DocBaoHay.Views
             ChuDe chuDe = e.CurrentSelection.FirstOrDefault() as ChuDe;
             Navigation.PushAsync(new NewsByTopic(chuDe));
         }
+
+        protected override void OnAppearing()
+        {
+            InitializeData();
+        }
     }
 }

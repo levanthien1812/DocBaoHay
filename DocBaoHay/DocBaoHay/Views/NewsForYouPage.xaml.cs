@@ -43,6 +43,11 @@ namespace DocBaoHay.Views
             var BaiBaoList_str = await httpClient.GetStringAsync(url);
 
             var BaiBaoList = JsonConvert.DeserializeObject<List<BaiBao_ChuDe>>(BaiBaoList_str);
+
+            if (BaiBaoList.Count == 0)
+            {
+                ThongBao.Text = "Vui lòng theo dõi nhiều nhiều chủ đề và nguồn báo hơn";
+            }
             NewsLV.ItemsSource = BaiBaoList;
         }
 

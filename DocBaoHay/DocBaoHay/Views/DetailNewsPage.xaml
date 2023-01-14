@@ -7,14 +7,14 @@
             <StackLayout x:Name="MainSL" Padding="10">
                 <StackLayout x:Name="Header" Orientation="Horizontal" Padding="0,6,0,6">
                     <Image x:Name="AuthorImg" HeightRequest="30" Margin="0,0,4,0"></Image>
-                    <Button x:Name="FollowBtn" CornerRadius="20" Padding="0,0,0,0" Text="Theo dõi" BackgroundColor="White" TextColor="#777" BorderColor="#777" BorderWidth="1" Clicked="FollowBtn_Clicked" HeightRequest="20"></Button>
-                    <Button x:Name="SaveBtn" CornerRadius="20" Padding="0,0,0,0" Text="Lưu" BackgroundColor="White" TextColor="#777" BorderColor="#777" BorderWidth="1" Clicked="SaveBtn_Clicked" HeightRequest="20" HorizontalOptions="EndAndExpand"></Button>
+                    <Button x:Name="FollowBtn" CornerRadius="20" Padding="0,0,0,0" Text="Theo dõi" BackgroundColor="White" TextColor="#777" BorderColor="#777" BorderWidth="1" Clicked="FollowBtn_Clicked" HeightRequest="20"  FontFamily="RobotoSlab"></Button>
+                    <Button x:Name="SaveBtn" CornerRadius="20" Padding="0,0,0,0" Text="Lưu" BackgroundColor="White" TextColor="#777" BorderColor="#777" BorderWidth="1" Clicked="SaveBtn_Clicked" HeightRequest="20" HorizontalOptions="EndAndExpand"  FontFamily="RobotoSlab"></Button>
                 </StackLayout>
                 <StackLayout x:Name="Content">
-                    <Label x:Name="BaiBaoTitle" FontSize="30" FontAttributes="Bold" Margin="0,0,0,5"></Label>
-                    <Label x:Name="BaiBaoTime" Margin="0,0,0,5"></Label>
+                    <Label x:Name="BaiBaoTitle" FontSize="30" FontAttributes="Bold" Margin="0,0,0,5"  FontFamily="RobotoSlab"></Label>
+                    <Label x:Name="BaiBaoTime" Margin="0,0,0,5" FontFamily="RobotoSlab"></Label>
                     <Image x:Name="BaiBaoImage" WidthRequest="300"></Image>
-                    <Label x:Name="BaiBaoDescription" FontSize="20" FontAttributes="Bold"></Label>
+                    <Label x:Name="BaiBaoDescription" FontSize="20" FontAttributes="Bold" FontFamily="RobotoSlab"></Label>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

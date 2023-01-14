@@ -49,5 +49,22 @@ namespace DocBaoHay.Views
             BaiBao_ChuDe baiBao = e.SelectedItem as BaiBao_ChuDe;
             Navigation.PushAsync(new DetailNewsPage(baiBao));
         }
+
+        private async void DeleteBtn_Clicked(object sender, EventArgs e)
+        {
+            bool choose = await DisplayAlert("Cảnh báo", "Xóa một bài báo cũng sẽ xóa luôn các bài báo đã lưu của người dùng. Thao tác này không thể hoàn tác. Bạn có chắc chắn muôn xóa?", "OK", "Hủy");
+            if (choose)
+            {
+                HttpClient http = new HttpClient();
+                string url = "http://192.168.56.1/docbaohay/api/bai-bao/" + ((ImageButton)sender).CommandParameter;
+                await http.DeleteAsync(url);
+                await DisplayAlert("Thông báo", "Xóa bài báo thành công", "OK");
+            }
+        }
+
+        protected override void OnAppearing()
+        {
+            InitializeData();
+        }
     }
 }

@@ -26,6 +26,7 @@ namespace DocBaoHay.Views
 			InitializeComponent ();
 			InitializeData(baiBao);
 			CreateRead(baiBao);
+			Title = baiBao.TieuDe;
 		}
 
 		private async void InitializeData(BaiBao_ChuDe baiBao)
@@ -48,7 +49,8 @@ namespace DocBaoHay.Views
 				if (doanVan[i].Loai == 1)
 				{
 					Label lb = new Label();
-					lb.FontSize = 18;
+					lb.FontFamily = "RobotoSlab";
+                    lb.FontSize = 18;
 					lb.Margin = new Thickness(0, 5, 0, 0);
 					lb.Text = doanVan[i].NoiDung;
 					MainSL.Children.Add(lb);
@@ -65,6 +67,7 @@ namespace DocBaoHay.Views
 				{
                     Label lb = new Label();
                     lb.FontSize = 19;
+                    lb.FontFamily = "RobotoSlab";
                     lb.Margin = new Thickness(0, 5, 0, 0);
 					lb.FontAttributes= FontAttributes.Bold;
                     lb.Text = doanVan[i].NoiDung;

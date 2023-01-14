@@ -6,10 +6,10 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout VerticalOptions="Center" Padding="20" x:Name="NotSignedInSL">
-                <Label Text="Bạn đã có tài khoản?" FontSize="15" HorizontalOptions="Center"></Label>
-                <Button x:Name="LoginBtn" Text="Đăng nhập" WidthRequest="250" BackgroundColor="Tomato" TextColor="White" Clicked="LoginBtn_Clicked" CornerRadius="30" Margin="0,0,0,10" HorizontalOptions="Center"></Button>
-                <Label Text="Bạn chưa có tài khoản?" FontSize="15" HorizontalOptions="Center"></Label>
-                <Button x:Name="SignUpBtn" Text="Đăng ký" WidthRequest="250" TextColor="Tomato" BackgroundColor="White" Clicked="SignUpBtn_Clicked" CornerRadius="30" BorderColor="Tomato" BorderWidth="2" HorizontalOptions="Center"></Button>
+                <Label  FontFamily="RobotoSlab" Text="Bạn đã có tài khoản?" FontSize="15" HorizontalOptions="Center"></Label>
+                <Button FontFamily="RobotoSlab" x:Name="LoginBtn" Text="Đăng nhập" WidthRequest="250" BackgroundColor="Tomato" TextColor="White" Clicked="LoginBtn_Clicked" CornerRadius="30" Margin="0,0,0,10" HorizontalOptions="Center"></Button>
+                <Label FontFamily="RobotoSlab" Text="Bạn chưa có tài khoản?" FontSize="15" HorizontalOptions="Center"></Label>
+                <Button FontFamily="RobotoSlab" x:Name="SignUpBtn" Text="Đăng ký" WidthRequest="250" TextColor="Tomato" BackgroundColor="White" Clicked="SignUpBtn_Clicked" CornerRadius="30" BorderColor="Tomato" BorderWidth="2" HorizontalOptions="Center"></Button>
             </StackLayout>
             <StackLayout VerticalOptions="Center" Padding="20"  x:Name="SignedInSL">
                 <Grid WidthRequest="300" BackgroundColor="Beige" Padding="12">
@@ -21,23 +21,23 @@
                         <Image x:Name="UserImg" HorizontalOptions="Start" Aspect="AspectFill"></Image>
                     </Frame>
                     <StackLayout Grid.Row="0" Grid.Column="1" Margin="16,0,0,0">
-                        <Label x:Name="UserUsername" Text="" FontSize="17"></Label>
-                        <Label x:Name="UserFullname" Text="" FontSize="17"></Label>
+                        <Label x:Name="UserUsername" Text="" FontSize="20" FontFamily="RobotoSlab"></Label>
+                        <Label x:Name="UserFullname" Text="" FontSize="17" FontFamily="RobotoSlab"></Label>
                     </StackLayout>
                 </Grid>
                 <StackLayout Margin="0,16,0,0" x:Name="SignedInBtns">
-                    <Button x:Name="SavedBtn" Text="Đã lưu" Clicked="SavedBtn_Clicked"></Button>
-                    <Button x:Name="FollowedBtn" Text="Đang theo dõi" Clicked="FollowedBtn_Clicked"></Button>
-                    <Button x:Name="RecentBtn" Text="Đọc gần đây" Clicked="RecentBtn_Clicked"></Button>
-                    <Button x:Name="UpdateInfoBtn" Text="Cập nhật tài khoản" Clicked="UpdateInfoBtn_Clicked"></Button>
-                    <Button x:Name="LogOutBtn" Text="Đăng xuất" Clicked="LogOutBtn_Clicked"></Button>
+                    <Button FontFamily="RobotoSlab" x:Name="SavedBtn" Text="Đã lưu" Clicked="SavedBtn_Clicked"></Button>
+                    <Button FontFamily="RobotoSlab" x:Name="FollowedBtn" Text="Đang theo dõi" Clicked="FollowedBtn_Clicked"></Button>
+                    <Button FontFamily="RobotoSlab" x:Name="RecentBtn" Text="Đọc gần đây" Clicked="RecentBtn_Clicked"></Button>
+                    <Button FontFamily="RobotoSlab" x:Name="UpdateInfoBtn" Text="Cập nhật tài khoản" Clicked="UpdateInfoBtn_Clicked"></Button>
                 </StackLayout>
                 
                 <StackLayout x:Name="AdminSL" Padding="20">
-                    <Button x:Name="ManageNewsBtn" Text="Quản lý bài báo" Clicked="ManageNewsBtn_Clicked"></Button>
-                    <Button x:Name="ManageTopicsBtn" Text="Quản lý chủ đề" Clicked="ManageTopicsBtn_Clicked"></Button>
-                    <Button x:Name="ManageAuthorsBtn" Text="Quản lý tác giả" Clicked="ManageAuthorsBtn_Clicked"></Button>
+                    <Button FontFamily="RobotoSlab" x:Name="ManageNewsBtn" Text="Quản lý bài báo" Clicked="ManageNewsBtn_Clicked"></Button>
+                    <Button FontFamily="RobotoSlab" x:Name="ManageTopicsBtn" Text="Quản lý chủ đề" Clicked="ManageTopicsBtn_Clicked"></Button>
+                    <Button FontFamily="RobotoSlab" x:Name="ManageAuthorsBtn" Text="Quản lý tác giả" Clicked="ManageAuthorsBtn_Clicked"></Button>
                 </StackLayout>
+                <Button FontFamily="RobotoSlab" x:Name="LogOutBtn" Text="Đăng xuất" Clicked="LogOutBtn_Clicked"></Button>            
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

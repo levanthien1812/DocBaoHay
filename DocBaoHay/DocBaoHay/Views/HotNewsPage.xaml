@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DocBaoHay.Views.HotNewsPage">
+             x:Class="DocBaoHay.Views.HotNewsPage"
+             Title="DocBaoHay">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Tìm kiếm" x:Name="SearchBtn" Clicked="SearchBtn_Clicked" IconImageSource="search.png"/>
     </ContentPage.ToolbarItems>
@@ -27,10 +28,10 @@
                                             <Image Source="{Binding Thumbnail}"  Aspect="AspectFill"/>
                                         </Frame>
 
-                                        <Label Text="{Binding TieuDe}" Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" FontSize="17"></Label>
+                                        <Label Text="{Binding TieuDe}" Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" FontSize="17" FontFamily="RobotoSlab"></Label>
                                         <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                                             <Image Source="{Binding TacGiaHinh}" Margin="10,0,0,0" HorizontalOptions="Start" HeightRequest="25" Aspect="AspectFit"/>
-                                            <Label Text="{Binding KhoangTG}" VerticalOptions="Center" Margin="10,0,0,0"></Label>
+                                            <Label Text="{Binding KhoangTG}" VerticalOptions="Center" Margin="10,0,0,0" FontFamily="RobotoSlab"></Label>
                                         </StackLayout>
                                     </Grid>
                                 </StackLayout>

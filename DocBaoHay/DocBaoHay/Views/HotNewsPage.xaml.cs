@@ -49,5 +49,10 @@ namespace DocBaoHay.Views
             ((RefreshView)sender).IsRefreshing = false;
             InitializeData();
         }
+
+        protected override void OnAppearing()
+        {
+            InitializeData();
+        }
     }
 }

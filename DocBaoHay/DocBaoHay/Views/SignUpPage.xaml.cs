@@ -63,5 +63,32 @@ namespace DocBaoHay.Views
 				await DisplayAlert("Thông báo", "Tên đăng nhập hoặc email đã tồn tại! Vui lòng thử lại", "OK");
 			}
         }
+
+        private void revealPassBtn_Clicked(object sender, EventArgs e)
+        {
+			if (MatKhauEntry.IsPassword == true)
+			{
+				((ImageButton)sender).Source = "eye_slash.png";
+				MatKhauEntry.IsPassword = false;
+			} else
+			{
+				((ImageButton)sender).Source = "eye.png";
+				MatKhauEntry.IsPassword = true;
+			}
+        }
+
+        private void revealConfBtn_Clicked(object sender, EventArgs e)
+        {
+            if (MatKhauEntry.IsPassword == true)
+            {
+                ((ImageButton)sender).Source = "eye_slash.png";
+                MatKhauEntry.IsPassword = false;
+            }
+            else
+            {
+                ((ImageButton)sender).Source = "eye.png";
+                MatKhauEntry.IsPassword = true;
+            }
+        }
     }
 }

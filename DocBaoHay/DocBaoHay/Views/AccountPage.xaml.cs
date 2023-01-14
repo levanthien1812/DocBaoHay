@@ -107,7 +107,7 @@ namespace DocBaoHay.Views
 
         private void ManageAuthorsBtn_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new ManageAuthorsPage());
         }
     }
 }

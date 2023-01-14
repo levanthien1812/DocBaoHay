@@ -5,24 +5,20 @@
              Title="Tìm kiếm bài báo">
     <ContentPage.Content>
         <StackLayout Padding="10">
-            <Entry x:Name="SearchEntry" Placeholder="Nhập nội dung tìm kiếm" TextChanged="SearchEntry_TextChanged"></Entry>
-            <StackLayout x:Name="DeXuatTacGia">
-                <Label Text="Các nguồn báo phù hợp" FontSize="18"></Label>
-                <CollectionView x:Name="DeXuatTacGiaCV"
-                            ItemsLayout="VerticalGrid, 2"
-                            SelectionMode="Single"
-                            SelectionChanged="DeXuatTacGiaCV_SelectionChanged">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <StackLayout Orientation="Horizontal" Padding="20,10,10,10">
-                                <Image Source="{Binding Hinh}" WidthRequest="100"></Image>
-                            </StackLayout>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+            <Frame Padding="10,0,0,0" CornerRadius="10" x:Name="SearchFrame">
+                <Grid ColumnDefinitions="*, 60" HeightRequest="100" Margin="0">
+                    <Entry x:Name="SearchEntry" Placeholder="Nhập nội dung tìm kiếm" TextChanged="SearchEntry_TextChanged" Grid.Column="0"></Entry>
+                    <ImageButton Source="search.png" x:Name="SearchBtn" Clicked="SearchBtn_Clicked" Grid.Column="1" BackgroundColor="#2e98c4" HeightRequest="30"></ImageButton>
+                </Grid>
+            </Frame>
+
+            <StackLayout x:Name="DeXuatTuKhoa">
+                <Label FontFamily="RobotoSlab" Text="Từ khóa phổ biến" FontSize="18" ></Label>
+                <StackLayout x:Name="KeyWordsSL"></StackLayout>
             </StackLayout>
+            
             <StackLayout x:Name="DeXuatBaiBao">
-                <Label Text="Các bài báo phù hợp" FontSize="18"></Label>
+                <Label FontFamily="RobotoSlab" Text="Các bài báo phổ biến" FontSize="18" x:Name="label2"></Label>
                 <ListView x:Name="DeXuatBaiBaoLV" ItemSelected="DeXuatBaiBaoLV_ItemSelected" RowHeight="120">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -42,10 +38,10 @@
                                             <Image Source="{Binding Thumbnail}"  Aspect="AspectFill"/>
                                         </Frame>
 
-                                        <Label Text="{Binding TieuDe}" Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" FontSize="17"></Label>
+                                        <Label FontFamily="RobotoSlab" Text="{Binding TieuDe}" Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" FontSize="17"></Label>
                                         <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                                             <Image Source="{Binding TacGiaHinh}" Margin="10,0,0,0" HorizontalOptions="Start" HeightRequest="25" Aspect="AspectFit"/>
-                                            <Label Text="{Binding KhoangTG}" VerticalOptions="Center" Margin="10,0,0,0"></Label>
+                                            <Label FontFamily="RobotoSlab" Text="{Binding KhoangTG}" VerticalOptions="Center" Margin="10,0,0,0"></Label>
                                         </StackLayout>
                                     </Grid>
                                 </StackLayout>

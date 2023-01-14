@@ -21,6 +21,7 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="130"/>
                                         <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="30"/>
                                     </Grid.ColumnDefinitions>
 
                                     <Frame Padding="0" Grid.RowSpan="2" Grid.Column="0" Grid.Row="0" CornerRadius="10">
@@ -32,6 +33,7 @@
                                         <Image Source="{Binding TacGiaHinh}" Margin="10,0,0,0" HorizontalOptions="Start" HeightRequest="25" Aspect="AspectFit"/>
                                         <Label Text="{Binding KhoangTG}" VerticalOptions="Center" Margin="10,0,0,0"></Label>
                                     </StackLayout>
+                                    <ImageButton Source="delete.png" x:Name="DeleteBtn" Clicked="DeleteBtn_Clicked" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" VerticalOptions="Center" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" WidthRequest="30" CommandParameter="{Binding Id}"></ImageButton>
                                 </Grid>
                             </StackLayout>
                         </ViewCell>

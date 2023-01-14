@@ -42,7 +42,7 @@ namespace DocBaoHay.Views
 
         private void AddBtn_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new AddTopicPage());
         }
 
         private async void DeleteBtn_Clicked(object sender, EventArgs e)
@@ -55,6 +55,12 @@ namespace DocBaoHay.Views
                 await http.DeleteAsync(url);
                 await DisplayAlert("Thông báo", "Xóa chủ đề thành công", "OK");
             }
+            InitializeData();
+        }
+
+        protected override void OnAppearing()
+        {
+            InitializeData();
         }
     }
 }

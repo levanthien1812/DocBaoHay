@@ -15,6 +15,7 @@ namespace DocBaoHay.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class NewsByTopic : ContentPage
 	{
+        ChuDe _chuDe;
 		public NewsByTopic ()
 		{
 			InitializeComponent ();
@@ -22,6 +23,7 @@ namespace DocBaoHay.Views
 		public NewsByTopic (ChuDe chude)
 		{
 			InitializeComponent ();
+            _chuDe= chude;
 			Title = "Tin " + chude.Ten;
             InitializeData(chude.Id);
         }
@@ -84,6 +86,11 @@ namespace DocBaoHay.Views
             {
                 await DisplayAlert("Thông báo", "Có lỗi xảy ra", "OK");
             }
+        }
+
+        protected override void OnAppearing()
+        {
+            InitializeData(_chuDe.Id);
         }
     }
 }

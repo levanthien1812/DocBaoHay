@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DocBaoHay.Views.AddAuthorPage"
+             Title="Thêm tác giả">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Thêm tác giả" FontSize="22" HorizontalOptions="Center"/>
+            <Label Text="Tên tác giả" FontSize="18"></Label>
+            <Entry x:Name="Ten" FontSize="18"></Entry>
+            <Label Text="Hình mô phỏng" FontSize="18"></Label>
+            <Entry x:Name="Hinh" FontSize="18"></Entry>
+            <Button x:Name="AddBtn" Text="Thêm tác giả" Clicked="AddBtn_Clicked" FontSize="18"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

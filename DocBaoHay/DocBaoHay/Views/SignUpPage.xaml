@@ -6,13 +6,19 @@
     <ContentPage.Content>
         <StackLayout Padding="20" VerticalOptions="Center">
             <Image Source="DocBaoHayLogo.jpg" WidthRequest="120" Margin="0,0,0,10"></Image>
-            <Label Text="Đăng ký" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="25" TextTransform="Uppercase"/>
-            <Entry Placeholder="Họ và tên" FontSize="17" x:Name="HoTenEntry" Margin="0,8,0,0"></Entry>
-            <Entry Placeholder="Tên đăng nhập" FontSize="17" x:Name="TenDangNhapEntry" Margin="0,8,0,0"></Entry>
-            <Entry Placeholder="Email" FontSize="17" x:Name="EmailEntry" Margin="0,8,0,0"></Entry>
-            <Entry Placeholder="Mật khẩu" IsPassword="True" FontSize="17" x:Name="MatKhauEntry" Margin="0,8,0,0"></Entry>
-            <Entry Placeholder="Xác nhận mật khẩu" IsPassword="True" FontSize="17" x:Name="MatKhauXacNhanEntry" Margin="0,8,0,0"></Entry>
-            <Button x:Name="SignUpBtn" Text="Đăng ký" Padding="10" BackgroundColor="Tomato" TextColor="White" Clicked="SignUpBtn_Clicked" CornerRadius="30" Margin="0,10,0,0" FontSize="17" TextTransform="Uppercase"></Button>
+            <Label FontFamily="RobotoSlab" Text="Đăng ký" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="25" TextTransform="Uppercase"/>
+            <Entry FontFamily="RobotoSlab" Placeholder="Họ và tên" FontSize="17" x:Name="HoTenEntry" Margin="0,8,0,0"></Entry>
+            <Entry FontFamily="RobotoSlab" Placeholder="Tên đăng nhập" FontSize="17" x:Name="TenDangNhapEntry" Margin="0,8,0,0"></Entry>
+            <Entry FontFamily="RobotoSlab" Placeholder="Email" FontSize="17" x:Name="EmailEntry" Margin="0,8,0,0"></Entry>
+            <Grid ColumnDefinitions="*, 30">
+                <Entry FontFamily="RobotoSlab" Placeholder="Mật khẩu" IsPassword="True" FontSize="17" x:Name="MatKhauEntry" Margin="0,8,0,0" Grid.Column="0"></Entry>
+                <ImageButton x:Name="revealPassBtn" Source="eye.png" CommandParameter="1" BackgroundColor="Transparent" WidthRequest="30" Grid.Column="1" Clicked="revealPassBtn_Clicked"></ImageButton>
+            </Grid>
+            <Grid ColumnDefinitions="*, 30">
+                <Entry FontFamily="RobotoSlab" Placeholder="Xác nhận mật khẩu" IsPassword="True" FontSize="17" x:Name="MatKhauXacNhanEntry" Margin="0,8,0,0"></Entry>
+                <ImageButton x:Name="revealConfBtn" Source="eye.png" CommandParameter="1" BackgroundColor="Transparent" WidthRequest="30" Grid.Column="1" Clicked="revealConfBtn_Clicked"></ImageButton>
+            </Grid>
+            <Button FontFamily="RobotoSlab" x:Name="SignUpBtn" Text="Đăng ký" Padding="10" BackgroundColor="Tomato" TextColor="White" Clicked="SignUpBtn_Clicked" CornerRadius="30" Margin="0,10,0,0" FontSize="17" TextTransform="Uppercase"></Button>
             <Label x:Name="resultLbl"></Label>
         </StackLayout>
     </ContentPage.Content>
